@@ -289,7 +289,6 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                   upperLeverRecord.set("dwallet", d3.dwallet);
                   txDao.saveRecord(upperLeverRecord);
                 }
-                console.log(art1[pos]);
                 flag1 = true;
                 flag = true;
                 break;
