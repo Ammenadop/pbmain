@@ -321,7 +321,7 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
       var UserRecord = record;
       record = JSON.parse(JSON.stringify(record));
       let floor = record.floor;
-      var ct = JSON.parse(record.course1=""? record.course : '[]');
+      var ct = JSON.parse(record.course!=""? record.course : '[]');
       ct = [...ct, ...scourses];
     
       UserRecord.set("course", JSON.stringify(ct));
