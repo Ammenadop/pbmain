@@ -427,3 +427,13 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
     return c.json(201, { message: "404 Error!" + e });
   }
 });
+
+routerAdd("POST", "/api/check", async (c) => {
+  try {
+    const datas = $apis.requestInfo(c).data;
+    
+    return c.json(200, { message: "Ok" });
+  } catch (e) {
+    return c.json(201, { message: "404 Error!" + e });
+  }
+});
