@@ -55,6 +55,7 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
         } catch (e) {
           oks = false;
         }
+        console.log(oks);
         if (oks == false) {
           var n = Math.pow(3, parseInt(nfloor));
           var newArray = Array.from({ length: n }, (_, index) => " ");
