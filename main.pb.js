@@ -109,19 +109,25 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
               art1[pos] == "3hlsg1ndkw4md1n"
                 ? dtop.dwallet + fleveld
                 : dtop.dwallet,
+            teamIn: dtop.tin + fleveld,
           };
           var d2 = {
             cwallet: rId == art1[pos] ? referCash + flevel : referCash,
             dwallet: rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
+            teamIn: dtag.tin + fleveld,
           };
 
           var d3 = {
             cwallet: flevelCash,
             dwallet: flevelDis,
+            teamIn: dtop5.tin + fleveld,
           };
 
           adminRecord.set("cwallet", d1.cwallet);
           adminRecord.set("dwallet", d1.dwallet);
+          if (art1[pos] == "3hlsg1ndkw4md1n") {
+            adminRecord.set("tin", d1.teamIn);
+          }
           txDao.saveRecord(adminRecord);
 
           let body22 = {
@@ -153,11 +159,15 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
           if (rId != "3hlsg1ndkw4md1n") {
             ReferRecord.set("cwallet", d2.cwallet);
             ReferRecord.set("dwallet", d2.dwallet);
+            if (art1[pos] == rId) {
+              ReferRecord.set("tin", d2.teamIn);
+            }
             txDao.saveRecord(ReferRecord);
           }
           if (art1[pos] != "3hlsg1ndkw4md1n" && rId != art1[pos]) {
             upperLeverRecord.set("cwallet", d3.cwallet);
             upperLeverRecord.set("dwallet", d3.dwallet);
+            upperLeverRecord.set("tin", d3.teamIn);
             txDao.saveRecord(upperLeverRecord);
           }
           flag = true;
@@ -238,19 +248,25 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                     art1[pos] == "3hlsg1ndkw4md1n"
                       ? dtop.dwallet + fleveld
                       : dtop.dwallet,
+                   teamIn: dtop.tin + fleveld,
                 };
                 var d2 = {
                   cwallet: rId == art1[pos] ? referCash + flevel : referCash,
                   dwallet:
                     rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
+                  teamIn: dtag.tin + fleveld,
                 };
 
                 var d3 = {
                   cwallet: flevelCash,
                   dwallet: flevelDis,
+                  teamIn: dtop5.tin + fleveld,
                 };
                 adminRecord.set("cwallet", d1.cwallet);
                 adminRecord.set("dwallet", d1.dwallet);
+                if (art1[pos] == "3hlsg1ndkw4md1n") {
+                  adminRecord.set("tin", d1.teamIn);
+                }
                 txDao.saveRecord(adminRecord);
 
                 let body22 = {
@@ -282,11 +298,15 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                 if (rId != "3hlsg1ndkw4md1n") {
                   ReferRecord.set("cwallet", d2.cwallet);
                   ReferRecord.set("dwallet", d2.dwallet);
+                  if (art1[pos] == rId) {
+                    ReferRecord.set("tin", d2.teamIn);
+                  }
                   txDao.saveRecord(ReferRecord);
                 }
                 if (art1[pos] != "3hlsg1ndkw4md1n" && rId != art1[pos]) {
                   upperLeverRecord.set("cwallet", d3.cwallet);
                   upperLeverRecord.set("dwallet", d3.dwallet);
+                  upperLeverRecord.set("tin", d3.teamIn);
                   txDao.saveRecord(upperLeverRecord);
                 }
                 flag1 = true;
@@ -320,9 +340,9 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
       var UserRecord = record;
       record = JSON.parse(JSON.stringify(record));
       let floor = record.floor;
-      var ct = JSON.parse(record.course!=""? record.course : '[]');
+      var ct = JSON.parse(record.course != "" ? record.course : "[]");
       ct = [...ct, ...scourses];
-    
+
       UserRecord.set("course", JSON.stringify(ct));
       txDao.saveRecord(UserRecord);
       const waitRecord = txDao.findRecordById("waiting", it);
@@ -380,19 +400,25 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
           art1[pos] == "3hlsg1ndkw4md1n"
             ? dtop.dwallet + fleveld
             : dtop.dwallet,
+        teamIn: dtop.tin + fleveld,
       };
       var d2 = {
         cwallet: rId == art1[pos] ? referCash + flevel : referCash,
         dwallet: rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
+        teamIn: dtag.tin + fleveld,
       };
 
       var d3 = {
         cwallet: flevelCash,
         dwallet: flevelDis,
+        teamIn: dtop5.tin + fleveld,
       };
 
       adminRecord.set("cwallet", d1.cwallet);
       adminRecord.set("dwallet", d1.dwallet);
+      if (art1[pos] == "3hlsg1ndkw4md1n") {
+        adminRecord.set("tin", d1.teamIn);
+      }
       txDao.saveRecord(adminRecord);
 
       let body22 = {
@@ -413,11 +439,15 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
       if (rId != "3hlsg1ndkw4md1n") {
         referRecord.set("cwallet", d2.cwallet);
         referRecord.set("dwallet", d2.dwallet);
+        if (art1[pos] == rId) {
+          referRecord.set("tin", d2.teamIn);
+        }
         txDao.saveRecord(referRecord);
       }
       if (art1[pos] != "3hlsg1ndkw4md1n" && rId != art1[pos]) {
         upperLeverRecord.set("cwallet", d3.cwallet);
         upperLeverRecord.set("dwallet", d3.dwallet);
+        upperLeverRecord.set("tin", d3.teamIn);
         txDao.saveRecord(upperLeverRecord);
       }
     });
@@ -430,7 +460,7 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
 routerAdd("POST", "/api/check", async (c) => {
   try {
     const datas = $apis.requestInfo(c).data;
-    
+
     return c.json(200, { message: "Ok" });
   } catch (e) {
     return c.json(201, { message: "404 Error!" + e });
