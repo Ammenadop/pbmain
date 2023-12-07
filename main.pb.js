@@ -109,22 +109,29 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
               art1[pos] == "3hlsg1ndkw4md1n"
                 ? dtop.dwallet + fleveld
                 : dtop.dwallet,
-            teamIn: dtop.tin + fleveld,
+            teamIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.tin + fleveld : dtop.tin,
+            rIn: rId == "3hlsg1ndkw4md1n" ? dtop.rin + refer : dtop.rin,
+            lIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.lin + flevel : dtop.lin,
           };
           var d2 = {
             cwallet: rId == art1[pos] ? referCash + flevel : referCash,
             dwallet: rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
-            teamIn: dtag.tin + fleveld,
+            teamIn: rId == art1[pos] ? dtag.tin + fleveld : dtag.tin,
+            rIn: rId == art1[pos] ? dtag.rin + refer : dtag.rin,
+            lIn: rId == art1[pos] ? dtag.lin + flevel : dtag.lin,
           };
 
           var d3 = {
             cwallet: flevelCash,
             dwallet: flevelDis,
             teamIn: dtop5.tin + fleveld,
+            lIn: dtop5.lin + flevel,
           };
 
           adminRecord.set("cwallet", d1.cwallet);
           adminRecord.set("dwallet", d1.dwallet);
+          adminRecord.set("rin", d1.rIn);
+          adminRecord.set("lin", d1.lIn);
           if (art1[pos] == "3hlsg1ndkw4md1n") {
             adminRecord.set("tin", d1.teamIn);
           }
@@ -159,6 +166,8 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
           if (rId != "3hlsg1ndkw4md1n") {
             ReferRecord.set("cwallet", d2.cwallet);
             ReferRecord.set("dwallet", d2.dwallet);
+            ReferRecord.set("rin", d2.rIn);
+            ReferRecord.set("lin", d2.lIn);
             if (art1[pos] == rId) {
               ReferRecord.set("tin", d2.teamIn);
             }
@@ -168,6 +177,7 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
             upperLeverRecord.set("cwallet", d3.cwallet);
             upperLeverRecord.set("dwallet", d3.dwallet);
             upperLeverRecord.set("tin", d3.teamIn);
+            upperLeverRecord.set("lin", d3.lIn);
             txDao.saveRecord(upperLeverRecord);
           }
           flag = true;
@@ -248,22 +258,29 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                     art1[pos] == "3hlsg1ndkw4md1n"
                       ? dtop.dwallet + fleveld
                       : dtop.dwallet,
-                   teamIn: dtop.tin + fleveld,
+                   teamIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.tin + fleveld : dtop.tin,
+                   rIn: rId == "3hlsg1ndkw4md1n" ? dtop.rin + refer : dtop.rin,
+                   lIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.lin + flevel : dtop.lin,
                 };
                 var d2 = {
                   cwallet: rId == art1[pos] ? referCash + flevel : referCash,
                   dwallet:
                     rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
-                  teamIn: dtag.tin + fleveld,
+                  teamIn: rId == art1[pos] ? dtag.tin + fleveld : dtag.tin,
+                  rIn: rId == art1[pos] ? dtag.rin + refer : dtag.rin,
+                  lIn: rId == art1[pos] ? dtag.lin + flevel : dtag.lin,
                 };
 
                 var d3 = {
                   cwallet: flevelCash,
                   dwallet: flevelDis,
                   teamIn: dtop5.tin + fleveld,
+                  lIn: dtop5.lin + flevel,
                 };
                 adminRecord.set("cwallet", d1.cwallet);
                 adminRecord.set("dwallet", d1.dwallet);
+                adminRecord.set("rin", d1.rIn);
+                adminRecord.set("lin", d1.lIn);
                 if (art1[pos] == "3hlsg1ndkw4md1n") {
                   adminRecord.set("tin", d1.teamIn);
                 }
@@ -298,6 +315,8 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                 if (rId != "3hlsg1ndkw4md1n") {
                   ReferRecord.set("cwallet", d2.cwallet);
                   ReferRecord.set("dwallet", d2.dwallet);
+                  ReferRecord.set("rin", d2.rIn);
+                  ReferRecord.set("lin", d2.lIn);
                   if (art1[pos] == rId) {
                     ReferRecord.set("tin", d2.teamIn);
                   }
@@ -307,6 +326,7 @@ routerAdd("POST", "/api/addUserLevel", async (c) => {
                   upperLeverRecord.set("cwallet", d3.cwallet);
                   upperLeverRecord.set("dwallet", d3.dwallet);
                   upperLeverRecord.set("tin", d3.teamIn);
+                  upperLeverRecord.set("lin", d3.lIn);
                   txDao.saveRecord(upperLeverRecord);
                 }
                 flag1 = true;
@@ -400,22 +420,29 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
           art1[pos] == "3hlsg1ndkw4md1n"
             ? dtop.dwallet + fleveld
             : dtop.dwallet,
-        teamIn: dtop.tin + fleveld,
+        teamIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.tin + fleveld : dtop.tin,
+        rIn: rId == "3hlsg1ndkw4md1n" ? dtop.rin + refer : dtop.rin,
+        lIn: art1[pos] == "3hlsg1ndkw4md1n" ? dtop.lin + flevel : dtop.lin,
       };
       var d2 = {
         cwallet: rId == art1[pos] ? referCash + flevel : referCash,
         dwallet: rId == art1[pos] ? dtag.dwallet + fleveld : dtag.dwallet,
-        teamIn: dtag.tin + fleveld,
+        teamIn: rId == art1[pos] ? dtag.tin + fleveld : dtag.tin,
+        rIn: rId == art1[pos] ? dtag.rin + refer : dtag.rin,
+        lIn: rId == art1[pos] ? dtag.lin + flevel : dtag.lin,
       };
 
       var d3 = {
         cwallet: flevelCash,
         dwallet: flevelDis,
         teamIn: dtop5.tin + fleveld,
+        lIn: dtop5.lin + flevel,
       };
 
       adminRecord.set("cwallet", d1.cwallet);
       adminRecord.set("dwallet", d1.dwallet);
+      adminRecord.set("rin", d1.rIn);
+      adminRecord.set("lin", d1.lIn);
       if (art1[pos] == "3hlsg1ndkw4md1n") {
         adminRecord.set("tin", d1.teamIn);
       }
@@ -439,6 +466,8 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
       if (rId != "3hlsg1ndkw4md1n") {
         referRecord.set("cwallet", d2.cwallet);
         referRecord.set("dwallet", d2.dwallet);
+        referRecord.set("rin", d2.rIn);
+        referRecord.set("lin", d2.lIn);
         if (art1[pos] == rId) {
           referRecord.set("tin", d2.teamIn);
         }
@@ -447,6 +476,7 @@ routerAdd("POST", "/api/buyCourse", async (c) => {
       if (art1[pos] != "3hlsg1ndkw4md1n" && rId != art1[pos]) {
         upperLeverRecord.set("cwallet", d3.cwallet);
         upperLeverRecord.set("dwallet", d3.dwallet);
+        upperLeverRecord.set("lin", d3.lIn);
         upperLeverRecord.set("tin", d3.teamIn);
         txDao.saveRecord(upperLeverRecord);
       }
